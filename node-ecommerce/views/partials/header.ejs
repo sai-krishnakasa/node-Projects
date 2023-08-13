@@ -1,0 +1,42 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Blog App</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+  <link href="/toaster.css" rel="stylesheet" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script>
+    toastr.options.timeOut = 1500;
+  </script>
+</head>
+
+<body>
+  <nav>
+    <h1><a href="/">E-commerce Application </a></h1>
+    <ul>
+      <% if (user) { %>
+        <p style="padding-right:200px;">Welcome <%= user.username %>
+        </p>
+        <%if(typeof isHome !=='undefined' ){%>
+          <%- include('search') %>
+            <%}%>
+              <!-- <li><a href="/posts">Posts</a></li> -->
+              <li><a href="/profile">Profile</a></li>
+              <li><a href="/addProductGet">Add Product</a></li>
+              <li><a href="/home">Home</a></li>
+              <li><a href="/myOrders">My Orders</a></li>
+              <li><a href="/logout" class="btn">Logout</a></li>
+              <% } else { %>
+                <li><a href="login">Log in</a></li>
+                <li><a href="signup" class="btn">Sign Up</a></li>
+                <% } %>
+    </ul>
+
+
+  </nav>

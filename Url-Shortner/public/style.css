@@ -1,0 +1,89 @@
+body {
+    background-image: url('https://images.unsplash.com/photo-1549037175-6644d4f4cfda');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-family: 'Helvetica Neue', sans-serif;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 48px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+label {
+    font-size: 24px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 18px;
+    width: 50%;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin-bottom: 20px;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    margin-bottom: 5%;
+    background-color: #555;
+}
+
+table {
+    margin-top: 50px;
+    border-collapse: collapse;
+    width: 80%;
+    margin: auto;
+}
+
+th {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+td {
+    padding: 10px;
+}
+
+a {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+a:hover {
+    background-color: #555;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+
+    <title>URL Shortener</title>
+</head>
+
+<body>
+    <h1>URL Shortener</h1>
+    <form method="post" action="/shorten">
+        <label for="url">Enter a URL to shorten:</label>
+        <input type="text" id="url" name="url" required>
+        <br>
+        <button type="submit">Shorten</button>
+    </form>
+    <table border="1px solid white">
+        <tr>
+            <th>Original Url</th>
+            <th>Shortened Url</th>
+            <th>Redirect</th>
+            <th>DELETE</th>
+        </tr>
+        <% if (urls) { %>
+
+            <% for (let url of urls) { %>
+                <tr>
+                    <th>
+                        <% if (url.long_url.length> 100) { %>
+                            <%= url.long_url.substring(0, 60) + "...." %>
+                                <% } else { %>
+                                    <%= url.long_url %>
+                                        <% } %>
+                    </th>
+                    <th>
+                        <%= url.short_url %>
+                    </th>
+                    <th>
+                        <a target="_blank" href="/search/<%= encodeURIComponent(url.short_url) %>">Redirect</a>
+                    </th>
+                    <th>
+                        <a href="/delete/<%= url.id  %>">DELETE</a>
+                    </th>
+                </tr>
+
+                <% } %>
+                    <% } %>
+    </table>
+</body>
+
+</html>

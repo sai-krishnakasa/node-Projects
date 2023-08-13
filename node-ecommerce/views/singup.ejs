@@ -1,0 +1,88 @@
+<%- include('partials/header') -%>
+
+    <form>
+        <h1>Sign Up</h1>
+        <label>Email</label>
+        <input type="email" name="email" required>
+        <div class="email error"></div>
+        <label>Username</label>
+        <div class="name error"></div>
+        <input type="text" name="name" required>
+        <label>Profile_pic</label>
+        <div class="image error"></div>
+        <input type="file" accept="image/*" name="image" required>
+        <label>Phone No.</label>
+        <div class="phone error"></div>
+        <input type="number" name="phone" required>
+        <label>Password</label>
+        <input type="password" name="password" required>
+        <div class="password  error"></div>
+        <button>Sign Up</button>
+    </form>
+    <script>
+        const form = document.querySelector('form');
+        const emailError = document.querySelector('.email.error');
+        const phoneError = document.querySelector('.phone.error');
+        const passwordError = document.querySelector('.password.error');
+        const nameError = document.querySelector('.name.error');
+        const imageError = document.querySelector('.image.error');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            // get the values of email,pass
+            const email = form.email.value;
+            const password = form.password.value;
+            const phone = form.phone.value;
+            const image = form.image.files[0];
+            const name = form.name.value;
+
+
+            // reset errors after every request
+            emailError.textContent = ''
+            passwordError.textContent = ''
+            nameError.textContent = ''
+            phoneError.textContent = ''
+            imageError.textContent = ''
+
+            const formData = new FormData();
+            formData.append('email', email);
+            formData.append('password', password);
+            formData.append('username', name);
+            formData.append('phone', phone);
+            formData.append('image', image);
+
+
+            try {
+                const res = await fetch('signup', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        // 'Content-Type': 'multipart/form-data',
+                    },
+                });
+                const data = await res.json();
+                //console.log("data")
+                //console.log(data)
+                if (data.errors) {
+                    if (data.errors?.email) {
+                        emailError.textContent = data.errors.email
+                    }
+                    if (data.errors?.password) {
+                        passwordError.textContent = data.errors.password
+                    }
+                    if (data.errors?.username) {
+                        nameError.textContent = data.errors.username
+                    }
+                }
+                if (data.user) {
+                    location.assign('login');
+                }
+            }
+            catch (e) {
+                //console.log(e);
+            }
+        });
+    </script>
+
+
+    <% -include('partials/footer') %>

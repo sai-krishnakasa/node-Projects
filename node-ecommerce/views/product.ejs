@@ -1,0 +1,43 @@
+<%- include('partials/header') %>
+    <style>
+        #make-inline {
+            display: flex;
+            gap: 130px;
+        }
+
+        .inline-button {
+            margin-right: 10px;
+        }
+    </style>
+    <div class="grid-container">
+        <% for(let product of products){%>
+            <div class="card">
+
+                <h2>
+                    <%= product.name%>
+                </h2>
+                <p>Category: <%= product.category?.name %>
+                </p>
+                <img src=<%=product.image%> alt="PRoduct Image ">
+                <% if(product.description.length> 200){%>
+                    <i>
+                        <%= product.description.substring(0,200)+"...." %>
+                    </i>
+                    <%}else{%>
+
+                        <i>
+                            <%= product.description %>
+                        </i>
+                        <% } %>
+                            <div id="make-inline">
+                                <button><a style="cursor: pointer;"
+                                        href="viewProduct/<%= product.id%>">View</a></button>
+                                <button><a href="deleteProduct/<%= product.id%>">Delete</a></button>
+                            </div>
+            </div>
+            </a>
+
+            <%}%>
+    </div>
+
+    <%- include('partials/footer') %>

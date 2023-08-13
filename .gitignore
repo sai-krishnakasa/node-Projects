@@ -1,0 +1,19 @@
+blog-app/node_modules
+*/node_modules
+*/config
+# build-auth-system/node_modules
+# chat-app/node_modules
+# blog-app-latest/node_modules
+# contact-manager/node_modules
+# blog-app/node_modules
+# file_upload_node/node_modules
+# fs/node_modules
+# insta-task/node_modules
+# insta-task2/node_modules
+# mongoose-prac/node_modules
+# mongoose-practice/node_modules
+# node_auth_jwt/node_modules
+# node_sequel_prac/node_modules
+# node_sequelize/node_modules
+# node-CRUD/node_modules
+
